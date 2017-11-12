@@ -20,6 +20,8 @@ class Movie extends Component{
     };
 
     save(){
+        var movieName = this.refs.movieName.value;
+        console.log('movie name is ' + movieName)
         this.setState({editing:false});
     }
 
@@ -33,7 +35,7 @@ class Movie extends Component{
 
     renderForm(){
         return (<div className="commentContainer">
-            <textarea defaultValue= {this.props.children}></textarea>
+            <textarea ref="movieName" defaultValue= {this.props.children}></textarea>
             <button onClick={()=>{this.save()}} className="button-primary">SAVE </button>
         </div>);
     }
