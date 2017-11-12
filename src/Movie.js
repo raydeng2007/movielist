@@ -5,23 +5,46 @@ import './Movie.css';
 class Movie extends Component{
     constructor(){
         super();
+        this.state = {
+            editing: false,
+        };
 
     }
 
     edit(){
-        alert('');
+       this.setState({editing:true});
     };
 
     delete(){
-        alert('');
+        alert('fuck outa here');
     };
 
+    save(){
+        this.setState({editing:false});
+    }
+
+    renderNormal(){
+        return (<div className="commentContainer">
+            <div className="commentText">{this.props.children}</div>
+            <button onClick={()=>{this.edit()}} className="button-primary">EDIT </button>
+            <button onClick={()=>{this.delete()}} className="button-danger">DELETE </button>
+        </div>);
+    }
+
+    renderForm(){
+        return (<div className="commentContainer">
+            <textarea defaultValue= {this.props.children}></textarea>
+            <button onClick={()=>{this.save()}} className="button-primary">SAVE </button>
+        </div>);
+    }
+
     render(){
-        return (<div className="movieContainer">
-                    <form className="movieTitle">{this.props.child}</form>
-                    <button onClick={()=>{this.delete()}} className="button-primary">EDIT </button>
-                    <button  className="button-danger">DELETE </button>
-                </div>);
+        if(this.state.editing){
+            return this.renderForm();
+        }else {
+            return this.renderNormal();
+        }
+
     }
 }
 
