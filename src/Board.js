@@ -11,12 +11,16 @@ export default class Board extends Component {
         super();
         this.state = {
             movieTitles:[
-                'movie1',
-                'movie2',
-                'movie3'
+
             ]
 
         }
+    }
+
+    add(movie){
+        var arr = this.state.movieTitles;
+        arr.push(movie);
+        this.setState({movieTitles:arr});
     }
 
     removeMovie(i){
@@ -38,10 +42,14 @@ export default class Board extends Component {
 
     render(){
         return(
-            <div className="board">
-                {
-                    this.state.movieTitles.map(this.eachMovie.bind(this))
-                }
+            <div>
+                <button onClick={this.add.bind(this, 'MOVIE TITLE')}>ADD NEW MOVIE</button>
+
+                <div className="board">
+                    {
+                        this.state.movieTitles.map(this.eachMovie.bind(this))
+                    }
+                </div>
             </div>
             );
     }
