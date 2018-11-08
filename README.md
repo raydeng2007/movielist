@@ -1,6 +1,7 @@
 Working React Web application for sharing and keeping track of 
 the movies that you wanted to watch but keep forgetting 
-whenever you need a movie to watch. 
+whenever you need a movie to watch. There's a live 
+demo version of the app deployed [here]('http://moviewatchlist.surge.sh/')
 
 You'll be able to edit/delete/update/add new movies to 
 your current list. 
